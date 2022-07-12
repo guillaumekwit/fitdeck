@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Barbell Bench",
+        "description": "Flat bench with barbell"
+    },
+    {
+        "title": "Barbell Squat",
+        "description": "Squat with barbell"
+    },
+    {
+        "title": "Cable Row",
+        "description": "Rowing with cable machine"
+    },
+    {
+        "title": "Deadlift",
+        "description": "Deadlift with barbell"
+    }
+]
