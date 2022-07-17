@@ -3,7 +3,7 @@
   }
   
   .search input {
-    background-color: white;
+    background-color: rgb(69, 69, 69);
     border: 0;
     border-radius: 2px;
     border-top-right-radius: 0px;
@@ -17,7 +17,7 @@
   .searchIcon {
     height: 60px;
     width: 50px;
-    background-color: white;
+    background-color: rgb(69, 69, 69);
     display: grid;
     place-items: center;
   }
