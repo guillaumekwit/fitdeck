@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import postRoutes from "./Routes/posts.js";
+import userRoutes from "./Routes/users.js";
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));
 app.use(cors());
 
 app.use("/posts", postRoutes);
+app.use("/user", userRoutes)
 
 const CONNECTION_URL = "mongodb+srv://fitdeck:fitdeck2022@cluster0.kbfedmt.mongodb.net/?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
