@@ -1,0 +1,58 @@
+let exercises
+
+export default class ExerciseDAO {
+    static async injectDB(conn) {
+        if (exercises) {
+            return
+        }
+        try {
+            exercises = await conn.db(process.env.FITDECKIO_NS).collection("exercises")
+        } catch (e) {
+            console.error(
+                'Unable to establish a collection handle in restaurantsDAO: ' + e, 
+            )
+        }
+    }
+
+    static async getExercises({
+        filters = null,
+        page = 0,
+        exercisesPerPage = 20,
+    } = {}) {
+        let query
+        if(filters) {
+            if ("name" in filters) {
+                query = {$text: { $search: filters["name"] } }
+            } else if ("area" in filters) {
+                query = { "area": { $eq: filters["area"]}}
+            }
+        }
+
+        let cursor
+
+        try{
+            cursor = await exercises
+                .find(query)
+        } catch (e) {
+            console.error('Unable to issue command, ' + e)
+            return { exercisesList: [], totalNumExercises: 0 }
+        }
+
+        const displayCursor = cursor.limit(exercisesPerPage).skip(exercisesPerPage * page)
+
+        try { 
+            const exercisesList = await displayCursor.toArray()
+            const totalNumExercises = await exercises.countDocuments(query)
+
+            return { exercisesList, totalNumExercises }
+        } catch (e) {
+            console.error(
+                'Unable to convert to array or problme counting documents, ' + e
+            )
+            return { exercisesList: [], totalNumExercises: 0 }
+        }
+    }
+
+
+
+}
