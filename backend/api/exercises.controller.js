@@ -1,5 +1,4 @@
-import e from "express"
-import ExerciseDAO from "../dao/exercisedao"
+import ExerciseDAO from "../dao/exercisedao.js"
 
 export default class ExercisesController {
     static async apiGetExercises(req, res, next) {
@@ -27,5 +26,15 @@ export default class ExercisesController {
             total_results: totalNumExercises,
         }
         res.json(response)
+    }
+
+    static async apiGetExerciseArea(req, res, next) {
+        try {
+            let area = await ExerciseDAO.getarea()
+            res.json(area)
+        } catch (e) {
+            console.log('api. ' + e)
+            res.status(500).json({ error: e })
+        }
     }
 }
