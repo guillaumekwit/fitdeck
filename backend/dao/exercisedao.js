@@ -6,7 +6,7 @@ export default class ExerciseDAO {
             return
         }
         try {
-            exercises = await conn.db(process.env.FITDECKIO_NS).collection("exercises")
+            exercises = await conn.db(process.env.FITDECKIO_NS).collection("Exercises")
         } catch (e) {
             console.error(
                 'Unable to establish a collection handle in restaurantsDAO: ' + e, 
@@ -51,8 +51,20 @@ export default class ExerciseDAO {
             )
             return { exercisesList: [], totalNumExercises: 0 }
         }
-    }
+    } 
 
-
-
+    static async getarea() {
+        let area = []
+        try {
+          area = await exercises.distinct("area")
+          return area
+        } catch (e) {
+          console.error(`Unable to get area, ${e}`)
+          return area
+        }
+      }
+    
 }
+
+
+
