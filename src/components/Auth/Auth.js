@@ -20,7 +20,6 @@ const Auth = () => {
     const [formData, setFormData] = useState(initialState);
     const dispatch = useDispatch();
     const history = useHistory();
-    
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword)
 
@@ -60,7 +59,7 @@ const Auth = () => {
     
 
   return (
-    <GoogleOAuthProvider clientId="284646656181-4ukno3ku4k27hlgai5nhu7q42jol4o33.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId='284646656181-4ukno3ku4k27hlgai5nhu7q42jol4o33.apps.googleusercontent.com'>
     <Container component="main" maxWidth="xs">
         <Paper className={classes.paper} elevation={3}>
             <Avatar className={classes.avatar}>
