@@ -91,7 +91,7 @@ const ExercisesList = props => {
   return (
     <div>
       <div className="row pb-1">
-        <div className="input-group col-lg-4">
+        <div className="input-group col-lg-2">
           <input
             type="text"
             className="form-control"
@@ -103,30 +103,20 @@ const ExercisesList = props => {
             <button
               className="btn btn-outline-secondary"
               type="button"
-              onClick={findByName}
-            >
+              onClick={findByName}>
               Search
             </button>
           </div>
         </div>
-        <div className="input-group col-lg-4">
+        <div className="input-group col-lg-2">
 
-          <select onChange={onChangeSearchArea}>
+          <select onChange={onChangeSearchArea}  onClick={findByArea}>
              {areas.map(area => {
                return (
-                 <option value={area}> </option>
+                 <option value={area}> {area} </option>
                )
              })}
           </select>
-          <div className="input-group-append">
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              onClick={findByArea}
-            >
-              Search
-            </button>
-          </div>
 
         </div>
       </div>
