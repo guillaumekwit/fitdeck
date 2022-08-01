@@ -120,12 +120,13 @@ const ExercisesList = props => {
 
         </div>
       </div>
+  
 
-
-      <div className="row">
+      <div className="container">
+      <div className="row-mt-5">
         {exercises.map((exercise) => {
           return (
-            <Card sx={{ minWidth: 275 }}>
+            <Card>
               <CardContent>
                 <Typography variant="h5" component="div">
                   {exercise.name}
@@ -145,6 +146,8 @@ const ExercisesList = props => {
             </Card>
             ); 
         })}
+
+    </div>
     </div>
   </div>
   );

@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import WorkoutDataService from "../../services/workouts";
-import { Link } from "react-router-dom";
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 const WorkoutsList = props => {
   const [workouts, setWorkouts] = useState([]);
-  const [searchName, setSearchName ] = useState("");
+  const [searchCalories, setSearchCalories ] = useState("");
   const [searchNumComplete, setSearchNumCompleted ] = useState("");
   const [searchTimeSpent, setSearchTime ] = useState("");
   
@@ -13,9 +17,9 @@ const WorkoutsList = props => {
     retrieveWorkouts();
   }, []);
 
-  const onChangeSearchName = e => {
-    const searchName = e.target.value;
-    setSearchName(searchName);
+  const onChangeSearchCalories = e => {
+    const searchCalories = e.target.value;
+    setSearchCalories(searchCalories);
   };
 
   const onChangeSearchNumComplete = e => {
@@ -40,9 +44,6 @@ const WorkoutsList = props => {
       });
   };
 
-  const refreshList = () => {
-    retrieveWorkouts();
-  };
 
   const find = (query, by) => {
    WorkoutDataService.find(query, by)
@@ -55,8 +56,8 @@ const WorkoutsList = props => {
       });
   };
 
-  const findByName = () => {
-    find(searchName, "name")
+  const findByCalories = () => {
+    find(searchCalories, "calories")
   };
 
   const findByNumCompleted = () => {
@@ -106,27 +107,46 @@ const WorkoutsList = props => {
             </button>
           </div>
         </div>
+        <div className="input-group col-lg-4">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search by Calories Burned"
+            value={searchCalories}
+            onChange={onChangeSearchCalories}
+          />
+          <div className="input-group-append">
+            <button
+              className="btn btn-outline-secondary"
+              type="button"
+              onClick={findByCalories}
+            >
+              Search
+            </button>
+          </div>
+        </div>
       </div>
       <div className="row">
         {workouts.map((workout) => {
           return (
-            <div className="col-lg-4 pb-1">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{workout.name}</h5>
-                  <p className="card-text">
-                    <strong> Notes: </strong>{workout.notes}<br/>
-                    Date:{workout.date}
-                  </p>
-                  </div>
-                  <ul className="list-group list-group-flush">
-                    <li className="list-group-item"> <strong> Time Spent Exercising: </strong>{workout.time_spent_exercising}</li>
-                    <li className="list-group-item"><strong>Total Exercises Completed</strong>{workout.num_exercises_completed}</li>
-                    <li className="list-group-item"><strong>Calories Burned: </strong>{workout.calories}</li>
-                  </ul>
-              </div>
-            </div>
-          );
+            <Card>
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  Date Completed: {workout.date}
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  Calories Burned: {workout.calories}
+                </Typography>
+                <Typography variant="body2">
+                    <strong> Time Spent Exercising (minutes): </strong>{workout.time_spent_exercising}
+                  <br />
+                  <strong>Total Exercises Completed: </strong>{workout.num_exercises_completed}
+                  <br />
+                  <strong> Notes: </strong> {workout.notes}
+                </Typography>
+              </CardContent>
+            </Card>
+            ); 
         })}
 
 

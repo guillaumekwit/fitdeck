@@ -10,7 +10,13 @@ export default class WorkoutsController {
             filters.num_exercises_completed = req.query.num_exercises_completed
         }else if (req.query.date) {
             filters.date = req.query.date
+        }else if (req.query.time_spent_exercising) {
+            filters.date = req.query.time_spent_exercising
+        }else if (req.query.calories) {
+            filters.date = req.query.calories
         }
+
+
 
         const { workoutsList, totalNumWorkouts } = await WorkoutsDAO.getWorkouts({
             filters,

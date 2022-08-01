@@ -48,7 +48,8 @@ const Navbar = () => {
             </Toolbar>
             <Typography component={Link} to="/OneRepMaxCalculator" variant="body1">Rep Calculator</Typography>
             <Typography component={Link} to="/exercises" variant="body1">Exercises</Typography>
-            <Typography component={Link} to="/workouts" variant="body1">workouts</Typography>
+            <Typography component={Link} to="/workouts" variant="body1">Previous Workouts</Typography>
+            <Typography component={Link} to="/Addworkout" variant="body1">Add Workouts</Typography>
         </AppBar>
     )
 }

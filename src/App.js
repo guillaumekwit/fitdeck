@@ -24,6 +24,7 @@ const App = () => {
                 <Route path="/OneRepMaxCalculator" exact component={OnRMCalc} />
                 <Route path="/Exercises" component={ExercisesList} />
                 <Route path="/workouts" render={(props) => (<WorkoutsList {...props} user={null} /> )}/>
+                <Route path="/AddWorkout" component={AddWorkout} />
             </Switch>
         </Container>
         </BrowserRouter>

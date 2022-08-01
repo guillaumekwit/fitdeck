@@ -23,9 +23,12 @@ export default class WorkoutsDAO {
         let query
         if(filters) {
             if ("num_exercises_completed" in filters) {
-                query = {$text: { $search: filters["num_exercises_completed"] } }
+                query = {"num_exercises_completed": { $search: filters["num_exercises_completed"] } }
             } else if ("date" in filters) {
                 query = { "date": { $eq: filters["date"]}}
+            }
+                else if ("notes" in filters) {
+                query = { "notes": { $eq: filters["notes"]}}
             }
         }
 
