@@ -33,7 +33,7 @@ const Navbar = () => {
     return (
         <AppBar position="static" color="inherit">
             <div>
-                <Typography component={Link} to="/" variant="h2" align="center">FitDeck.io</Typography>
+                <Typography component={Link} to="/" variant="h2" align="center">FitDeck.fun</Typography>
             </div>
             <Toolbar>
                 {user ? (
@@ -47,6 +47,8 @@ const Navbar = () => {
                 )}
             </Toolbar>
             <Typography component={Link} to="/OneRepMaxCalculator" variant="body1">Rep Calculator</Typography>
+            <Typography component={Link} to="/exercises" variant="body1">Exercises</Typography>
+            <Typography component={Link} to="/workouts" variant="body1">workouts</Typography>
         </AppBar>
     )
 }
