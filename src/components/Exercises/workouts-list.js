@@ -70,62 +70,6 @@ const WorkoutsList = props => {
 
   return (
     <div>
-      <div className="row pb-1">
-        <div className="input-group col-lg-4">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search by Number of Exercises"
-            value={searchNumComplete}
-            onChange={onChangeSearchNumComplete}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              onClick={findByNumCompleted}
-            >
-              Search
-            </button>
-          </div>
-        </div>
-        <div className="input-group col-lg-4">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search by Time Spent Exercising"
-            value={searchTimeSpent}
-            onChange={onChangeSearchTimeSpent}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              onClick={findByTimeSpent}
-            >
-              Search
-            </button>
-          </div>
-        </div>
-        <div className="input-group col-lg-4">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search by Calories Burned"
-            value={searchCalories}
-            onChange={onChangeSearchCalories}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              onClick={findByCalories}
-            >
-              Search
-            </button>
-          </div>
-        </div>
-      </div>
       <div className="row">
         {workouts.map((workout) => {
           return (
