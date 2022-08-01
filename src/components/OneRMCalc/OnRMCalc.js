@@ -1,9 +1,10 @@
 import React from 'react'
+import {Button} from "@material-ui/core"
 
 const OnRMCalc = () => {
-    window.onload = function(){
-        const calcButton = document.getElementById("submit");
-        calcButton.addEventListener("click", function(e){
+    function work(){
+        //const calcButton = document.getElementById("submit");
+        //calcButton.addEventListener("click", function(e){
             let firstWeight = document.getElementById("weight").value;
             let firstReps = document.getElementById("reps").value;
     
@@ -54,7 +55,7 @@ const OnRMCalc = () => {
                 alert("Lift must be 1 to 1500 \r\nReps must be 1 to 30");
             }
     
-        });
+       // });
     }
     
     function calculateOneRep(weight, reps){ //calculates one rep max
@@ -101,7 +102,7 @@ const OnRMCalc = () => {
         <div>
             <div>
                 <div>
-                    <button type="button" id="submit">Calculate your One-Rep Max</button>
+                    <Button onClick={work}>Calculate your One-Rep Max</Button>
                 </div>
             </div>
         </div>
