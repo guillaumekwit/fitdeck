@@ -1,5 +1,20 @@
 import React, { useState, useEffect } from "react";
 import ExerciseDataService from "../../services/exercises.js";
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
+const bull = (
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+  >
+    •
+  </Box>
+);
 
 const ExercisesList = props => {
   const [exercises, setExercises] = useState([]);
@@ -115,28 +130,33 @@ const ExercisesList = props => {
 
         </div>
       </div>
+
+
       <div className="row">
         {exercises.map((exercise) => {
           return (
-            <div className="col-lg-4 pb-1">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{exercise.name}</h5>
-                  <p className="card-text">
-                    <strong>Focus Area: </strong>{exercise.area}<br/>
-                    <strong>Max Weight: </strong>{exercise.weight}
-                    <strong>Sets To Reps: </strong>{exercise.set_to_reps}
-                  </p>
-                  <a target="_blank" href={exercise.description_video} className="btn btn-primary col-lg-5 mx-1 mb-1">View Video</a>
-                  </div>
-                </div>
-              </div>
-          );
+            <Card sx={{ minWidth: 275 }}>
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  {exercise.name}
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  Focus Area: {exercise.area}
+                </Typography>
+                <Typography variant="body2">
+                  Max Weight: {exercise.weight}
+                  <br />
+                  Sets to Reps: {exercise.set_to_reps}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small" href={exercise.description_video}>Video</Button>
+              </CardActions>
+            </Card>
+            ); 
         })}
-
-
-      </div>
     </div>
+  </div>
   );
 };
 
