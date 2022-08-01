@@ -9,6 +9,7 @@ import Auth from "./components/Auth/Auth";
 import OnRMCalc from "./components/OneRMCalc/OnRMCalc";
 import ExercisesList from "./components/Exercises/exercises-list";
 import WorkoutsList from "./components/Exercises/workouts-list";
+import AddWorkout from "./components/Exercises/AddWorkout";
 
 
 
@@ -21,7 +22,7 @@ const App = () => {
                 <Route path="/" exact component={Home}/>
                 <Route path="/auth" exact component={Auth} />
                 <Route path="/OneRepMaxCalculator" exact component={OnRMCalc} />
-                <Route exact path="/exercises" component={ExercisesList} />
+                <Route path="/Exercises" component={ExercisesList} />
                 <Route path="/workouts" render={(props) => (<WorkoutsList {...props} user={null} /> )}/>
             </Switch>
         </Container>
