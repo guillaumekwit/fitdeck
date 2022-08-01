@@ -20,7 +20,7 @@ app.use(cors());
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes)
 app.use("/api/v1/exercise", exercises)
-app.use("*", (req, res) => res.status(404).json({error: "not found"}))
+//app.use("*", (req, res) => res.status(404).json({error: "not found"}))
 
 app.get('/', (req,res) => {
     res.send("APP IS RUNNING.")
@@ -36,10 +36,10 @@ mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnified
 
 const MongoClient = mongodb.MongoClient
 
-const port = 8080
+const port = process.env.PORT2 || 8080
 
 MongoClient.connect(
-    "mongodb+srv://JayJacelli:FitDeck3980@cluster0.aj1wl.mongodb.net/FitDeck?retryWrites=true&w=majority",
+    process.env.FITDECKIO_DB_URI,
     {
         maxpoolSize: 200,
         wtimeoutMS: 2500,

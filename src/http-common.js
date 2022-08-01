@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:8080/api/v1/exercise",
+  baseURL: "https://fitdeck.herokuapp.com/api/v1/exercise",
   headers: {
     "Content-type": "application/json"
   }
