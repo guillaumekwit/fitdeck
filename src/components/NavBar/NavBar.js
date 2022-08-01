@@ -46,6 +46,7 @@ const Navbar = () => {
                     <Button component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
                 )}
             </Toolbar>
+            <Typography component={Link} to="/OneRepMaxCalculator" variant="body1">Rep Calculator</Typography>
         </AppBar>
     )
 }
