@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const AddWorkout = props => {
 
+  const user = useState(JSON.parse(localStorage.getItem("profile")));
   const [submitted, setSubmitted] = useState(false);
   const[num_exercises_completed, setNum] = useState("");
   const[notes, setText] = useState("");
@@ -41,7 +42,7 @@ const AddWorkout = props => {
 
   return (
     <div>
-      {props.user ? (
+      {user ? (
       <div className="submit-form">
         {submitted ? (
           <div>
