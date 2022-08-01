@@ -1,32 +1,23 @@
 import React, { useEffect} from "react";
-import { Container, Grow, Grid } from "@material-ui/core";
-import { useDispatch } from "react-redux";
-
-import { getPosts } from "../../actions/posts";
-import Posts from "../Posts/Posts";
-import SearchBar from "../Form/SearchBar";
-import TempData from "../Home/TempData.json";
+import { Card, Typography } from "@material-ui/core";
 
 const Home = () => {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getPosts());
-    }, [dispatch]);
-
     return (
-        <Grow in>
-            <Container>
-                <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                    <Grid item xs={12} sm={7}>
-                        <Posts />
-                    </Grid>
-                    <Grid item xs={12} sm={4}>
-                        <SearchBar data={TempData}/>
-                    </Grid>
-                </Grid>
-            </Container>
-        </Grow>
+        <Card>
+            <Typography variant="body1">
+                Hello! Welcome to FitDeck.FUN!
+
+                This website was built by a Team of 3 computer sciense students and gym lovers.{'\n'}
+
+                Our goal was to design a site which allowed the user to control their own gym path without being
+                confused or overwhelmed by influencer culture.
+
+                Here you will find 20 recommended exercises to start your journey. Along with a simple workout tracker
+                and calorie counter. 
+
+                Explore the site and remember have fun :D
+            </Typography>
+        </Card>
     );
 }
 
